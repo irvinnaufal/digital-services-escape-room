@@ -1,196 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Digital Services Escape Room</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <style>
-        /* Background Color and Font Styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #2c3e50, #34495e); /* Dark gradient background */
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
+      /* Background Color and Font Styles */
+      body {
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(
+          to bottom,
+          #2c3e50,
+          #34495e
+        ); /* Dark gradient background */
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
 
-        /* Header and Intro */
+      /* Header and Intro */
+      .welcome-container h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+        color: #ecf0f1; /* Light grey for the main title */
+      }
+
+      .rules h2 {
+        font-size: 1.8rem;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        color: #3498db; /* Bright blue for rules section */
+      }
+
+      .rules ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .rules li {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+        color: black;
+      }
+
+      /* Interactive Hearts */
+      .interactive-hearts {
+        font-size: 2.5rem;
+        margin: 20px 0;
+        color: #f39c12; /* Gold color for hearts */
+      }
+
+      /* Start Button */
+      #start-game-btn {
+        background-color: #e74c3c; /* Bright red button */
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      #start-game-btn:hover {
+        background-color: #c0392b; /* Darker red on hover */
+      }
+
+      /* Countdown Styles */
+      #countdown {
+        font-size: 3rem;
+        color: #f39c12; /* Gold for countdown */
+        font-weight: bold;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+        padding: 20px;
+        border-radius: 10px;
+        display: none; /* Initially hidden */
+        text-shadow: 0 0 10px #f39c12, 0 0 20px #e74c3c; /* Glowing effect */
+      }
+
+      /* Fade-in Animation */
+      .fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Responsive Design */
+      @media screen and (max-width: 600px) {
         .welcome-container h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            color: #ecf0f1; /* Light grey for the main title */
+          font-size: 2rem; /* Smaller heading for mobile */
         }
 
-        .rules h2 {
-            font-size: 1.8rem;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            color: #3498db; /* Bright blue for rules section */
-        }
-
-        .rules ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .rules li {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
-            color: black
-        }
-
-        /* Interactive Hearts */
-        .interactive-hearts {
-            font-size: 2.5rem;
-            margin: 20px 0;
-            color: #f39c12; /* Gold color for hearts */
-        }
-
-        /* Start Button */
         #start-game-btn {
-            background-color: #e74c3c; /* Bright red button */
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+          font-size: 1.2rem; /* Smaller button for mobile */
+          padding: 12px 20px;
         }
 
-        #start-game-btn:hover {
-            background-color: #c0392b; /* Darker red on hover */
+        .interactive-hearts {
+          font-size: 2rem; /* Smaller hearts for mobile */
         }
-
-        /* Countdown Styles */
-        #countdown {
-            font-size: 3rem;
-            color: #f39c12; /* Gold for countdown */
-            font-weight: bold;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            padding: 20px;
-            border-radius: 10px;
-            display: none; /* Initially hidden */
-            text-shadow: 0 0 10px #f39c12, 0 0 20px #e74c3c; /* Glowing effect */
-        }
-
-        /* Fade-in Animation */
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Responsive Design */
-        @media screen and (max-width: 600px) {
-            .welcome-container h1 {
-                font-size: 2rem; /* Smaller heading for mobile */
-            }
-
-            #start-game-btn {
-                font-size: 1.2rem; /* Smaller button for mobile */
-                padding: 12px 20px;
-            }
-
-            .interactive-hearts {
-                font-size: 2rem; /* Smaller hearts for mobile */
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <!-- Welcome and Rules Section -->
-        <div class="welcome-container">
-            <h1>Welcome to the Digital Services Escape Room!</h1>
-            <p>Get ready to dive into the Digital Services Division and solve the puzzles related to our processes and tools. Are you up for the challenge?</p>
-            
-            <div class="rules">
-                <h2>Rules:</h2>
-                <ul>
-                    <li><strong>Objective:</strong> Solve all puzzles to escape!</li>
-                    <li><strong>Hearts:</strong> You start with 3 hearts. Lose a heart with each incorrect answer.</li>
-                    <li><strong>Failure:</strong> Lose all hearts, and you’ll be sent back to the start!</li>
-                </ul>
-            </div>
+      <!-- Welcome and Rules Section -->
+      <div class="welcome-container">
+        <h1>Welcome to the Digital Services Escape Room!</h1>
+        <p>
+          Get ready to dive into the Digital Services Division and solve the
+          puzzles related to our processes and tools. Are you up for the
+          challenge?
+        </p>
 
-            <!-- Interactive Hearts -->
-            <div id="hearts" class="interactive-hearts">
-                ❤️❤️❤️
-            </div>
-
-            <!-- Start Button -->
-            <p>Click the button below to begin!</p>
-            <button id="start-game-btn">Start Game</button>
+        <div class="rules">
+          <h2>Rules:</h2>
+          <ul>
+            <li><strong>Objective:</strong> Solve all puzzles to escape!</li>
+            <li>
+              <strong>Hearts:</strong> You start with 3 hearts. Lose a heart
+              with each incorrect answer.
+            </li>
+            <li>
+              <strong>Failure:</strong> Lose all hearts, and you’ll be sent back
+              to the start!
+            </li>
+          </ul>
         </div>
 
-        <!-- Countdown Message (Initially Hidden) -->
-        <div id="countdown" class="fade-in"></div>
+        <!-- Interactive Hearts -->
+        <div id="hearts" class="interactive-hearts">❤️❤️❤️</div>
+
+        <!-- Start Button -->
+        <p>Click the button below to begin!</p>
+        <button id="start-game-btn">Start Game</button>
+      </div>
+
+      <!-- Countdown Message (Initially Hidden) -->
+      <div id="countdown" class="fade-in"></div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const startButton = document.getElementById('start-game-btn');
-            const heartsElement = document.getElementById('hearts');
-            const countdownElement = document.getElementById('countdown');
-            let hearts = 3; // Initial number of hearts
+      document.addEventListener("DOMContentLoaded", function () {
+        const startButton = document.getElementById("start-game-btn");
+        const heartsElement = document.getElementById("hearts");
+        const countdownElement = document.getElementById("countdown");
+        let hearts = 3; // Initial number of hearts
 
-            // Start Game
-            startButton.addEventListener('click', function() {
-                // Display countdown before moving to the first level
-                let countdown = 3;
-                countdownElement.style.display = 'block'; // Show the countdown
-                countdownElement.innerText = `Game starts in ${countdown}...`;
-                countdownElement.classList.add('fade-in'); // Add fade-in effect
+        // Start Game
+        startButton.addEventListener("click", function () {
+          // Display countdown before moving to the first level
+          let countdown = 3;
+          countdownElement.style.display = "block"; // Show the countdown
+          countdownElement.innerText = `Game starts in ${countdown}...`;
+          countdownElement.classList.add("fade-in"); // Add fade-in effect
 
-                const interval = setInterval(function() {
-                    countdown--;
-                    countdownElement.innerText = `Game starts in ${countdown}...`;
+          const interval = setInterval(function () {
+            countdown--;
+            countdownElement.innerText = `Game starts in ${countdown}...`;
 
-                    if (countdown <= 0) {
-                        clearInterval(interval);
-                        countdownElement.innerText = 'Go!';
-                        setTimeout(function() {
-                            window.location.href = 'level1.html'; // Redirect to first puzzle
-                        }, 1000);
-                    }
-                }, 1000);
-            });
-
-            // Handle heart interactions (animations when losing hearts)
-            function updateHearts() {
-                heartsElement.textContent = '❤️'.repeat(hearts); // Update heart display
-                localStorage.setItem('hearts', hearts); // Update hearts count in localStorage
-                if (hearts <= 0) {
-                    alert('You lost all your hearts! You have to start over.');
-                    // Reset to start game page or reload the page
-                    window.location.href = 'index.html';
-                }
+            if (countdown <= 0) {
+              clearInterval(interval);
+              countdownElement.innerText = "Go!";
+              setTimeout(function () {
+                window.location.href = "level1.html"; // Redirect to first puzzle
+              }, 1000);
             }
-
-            // Update hearts after an incorrect answer (this part would be connected to your puzzles)
-            function handleIncorrectAnswer() {
-                hearts--;
-                updateHearts();
-            }
-
-            // Initial hearts display
-            updateHearts();
+          }, 1000);
         });
+
+        // Handle heart interactions (animations when losing hearts)
+        function updateHearts() {
+          heartsElement.textContent = "❤️".repeat(hearts); // Update heart display
+          localStorage.setItem("hearts", hearts); // Update hearts count in localStorage
+          // Optionally, reset progress or end the game
+          localStorage.removeItem("level1Complete");
+          localStorage.removeItem("level2Complete");
+          if (hearts <= 0) {
+            alert("You lost all your hearts! You have to start over.");
+            // Reset to start game page or reload the page
+            window.location.href = "index.html";
+          }
+        }
+
+        // Update hearts after an incorrect answer (this part would be connected to your puzzles)
+        function handleIncorrectAnswer() {
+          hearts--;
+          updateHearts();
+        }
+
+        // Initial hearts display
+        updateHearts();
+      });
     </script>
-</body>
+  </body>
 </html>
