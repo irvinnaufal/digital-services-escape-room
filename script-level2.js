@@ -2,7 +2,7 @@
 const tasks = document.querySelectorAll(".task");
 const dropZones = document.querySelectorAll(".drop-zone");
 const message = document.getElementById("message");
-const nextButton = document.getElementById("next-level-btn");
+const nextButton = document.getElementById("finish-level2-btn");
 
 let isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
 let currentDraggedTask = null;
@@ -163,3 +163,23 @@ function checkCompletion() {
     nextButton.style.display = "none"; // Hide the "Next Puzzle" button if wrong
   }
 }
+
+// level2.js
+document.addEventListener('DOMContentLoaded', function () {
+    const level1Complete = localStorage.getItem('level1Complete');
+
+    // If Level 1 is not completed, redirect to Level 1
+    if (!level1Complete) {
+        alert("You must complete Level 1 first!");
+        window.location.href = 'level1.html'; // Redirect to Level 1
+    }
+
+    // Code for Level 2 goes here
+    // When the player finishes Level 2:
+    const finishButton = document.getElementById('finish-level2-btn');
+    finishButton.addEventListener('click', function () {
+        // Mark Level 2 as completed in localStorage
+        localStorage.setItem('level2Complete', 'true');
+        window.location.href = 'level3.html'; // Redirect to Level 3
+    });
+});
