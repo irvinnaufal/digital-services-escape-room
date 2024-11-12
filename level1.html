@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puzzle 1 - Organize the Digital Services Units</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="hearts">
+        ❤️❤️❤️
+        <!-- Initially show 3 hearts -->
+      </div>
+      <h2>Puzzle 1: Organize the Units in Digital Services</h2>
+      <p>
+        Drag and drop the different divisions into the correct areas: IT
+        Operations and IT Solutions.
+      </p>
+
+      <div class="drop-zones">
+        <div class="drop-zone" id="it-operations">IT Operations</div>
+        <div class="drop-zone" id="it-solutions">IT Solutions</div>
+      </div>
+
+      <div class="tasks">
+        <div class="task" draggable="true" id="task1">
+          Network Infrastructure
+        </div>
+        <div class="task" draggable="true" id="task2">Cloud Services</div>
+        <div class="task" draggable="true" id="task3">Help Desk Support</div>
+        <div class="task" draggable="true" id="task4">Software Development</div>
+      </div>
+
+      <p id="message"></p>
+      <button
+        id="next-level-btn"
+        style="display: none"
+        onclick="window.location.href='level2.html'"
+      >
+        Next Puzzle
+      </button>
+    </div>
+    <script src="scriptheart.js"></script>
+    <script src="script-level1.js"></script>
+  </body>
+</html>

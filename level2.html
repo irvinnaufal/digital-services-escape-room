@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level 2 - Organize the IT Services</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="hearts">
+        ❤️❤️❤️
+        <!-- Initially show 3 hearts -->
+      </div>
+      <h2>Level 2: Organize the IT Services</h2>
+      <p>
+        Drag and drop the different IT services into the correct areas: IT
+        Operations and IT Solutions.
+      </p>
+
+      <div class="drop-zones">
+        <div class="drop-zone" id="it-operations">IT Operations</div>
+        <div class="drop-zone" id="it-solutions">IT Solutions</div>
+      </div>
+
+      <div class="tasks">
+        <div class="task" draggable="true" id="task1">
+          Provision of IT Infrastructure & COTS
+        </div>
+        <div class="task" draggable="true" id="task2">
+          IT Incident & Problem Management
+        </div>
+        <div class="task" draggable="true" id="task3">
+          Backup Restore Management
+        </div>
+        <div class="task" draggable="true" id="task4">
+          IT Service Request Management
+        </div>
+        <div class="task" draggable="true" id="task5">IT Change Management</div>
+        <div class="task" draggable="true" id="task6">IT Access Management</div>
+      </div>
+
+      <p id="message"></p>
+      <button
+        id="next-level-btn"
+        style="display: none"
+        onclick="window.location.href='level3.html'"
+      >
+        Next Puzzle
+      </button>
+    </div>
+  </body>
+  <script src="scriptheart.js"></script>
+  <script src="script-level2.js"></script>
+</html>
